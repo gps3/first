@@ -1,0 +1,24 @@
+def fun(s):
+    a=s.count('@')
+    b=s.count('.')
+    c=s.split('@')
+    d=c[1].split('.')
+    print(c[0],d)
+    e=c[0].replace('_','1')
+    e=c[0].replace('-','2')
+    print(e)
+    if e.isalnum()==True and a==1 and b==1 and d[0].isalnum()==True and (len(c[1]) in range(1,4)):
+        return True
+
+def filter_mail(emails):
+    return list(filter(fun, emails))
+
+if __name__ == '__main__':
+    n = int(input())
+    emails = []
+    for _ in range(n):
+        emails.append(input())
+
+filtered_emails = filter_mail(emails)
+filtered_emails.sort()
+print(filtered_emails)
